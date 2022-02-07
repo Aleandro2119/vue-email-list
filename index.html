@@ -22,7 +22,11 @@
 </head>
 
 <body>
-    <div class="root"></div>
+    <div id="root">
+        <ul v-if="emails.length === emailsNum">
+            <li v-for="email in emails">{{ email }}</li>
+        </ul>
+    </div>
     <script src="js/script.js"></script>
 </body>
 

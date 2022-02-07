@@ -12,3 +12,21 @@ console.log('Vue ok', Vue);
 Vue.config.devtools = true;
 
 dayjs.extend(dayjs_plugin_customParseFormat);
+
+const root = new Vue({
+    el: '#root',
+    data: {
+        emails: [],
+        emailsNum: 10,
+    },
+
+    email() {
+        for (let i = 0; i < emailsNum; i++) {
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then(res => {
+                const email = res.data.response;
+                this.emails.push(email)
+            })
+        }
+    }
+})
+
